@@ -46,10 +46,66 @@ class _WorldStatesState extends State<WorldStatesScreen>
                 },
                 animationDuration: Duration(milliseconds: 1200),
                 chartType: ChartType.disc,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height * .06),
+                child: Card(
+                  child: Column(
+                    children: [
+                      reUsableRow(
+                        title: 'Total',
+                        value: '300',
+                      ),
+                      reUsableRow(
+                        title: 'Total',
+                        value: '300',
+                      ),
+                      reUsableRow(
+                        title: 'Total',
+                        value: '300',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                height: 50,
+                child: Center(child: Text('Track any contry')),
+                decoration: BoxDecoration(
+                  color: const Color(0xff1aa260),
+                  borderRadius: BorderRadius.circular(10),
+                ),
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class reUsableRow extends StatelessWidget {
+  String title, value;
+  reUsableRow({super.key, required this.title, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(title),
+              Text(value),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+        ],
       ),
     );
   }
